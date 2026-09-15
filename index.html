@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Cubbo - Módulo Productividades</title>
+  <title>Cubbo - Productividades</title>
   <style>
     * {
       box-sizing: border-box;
@@ -11,35 +11,34 @@
       padding: 0;
     }
     body {
-      background-color: #0f172a;
+      background-color: #f8fafc;
       overflow: hidden;
       height: 100vh;
       width: 100vw;
     }
 
-    /* Contenedor que actúa como máscara/recorte */
+    /* Contenedor que recorta los menús */
     .crop-wrapper {
-      position: relative;
+      position: absolute;
+      top: 0;
+      left: 0;
       width: 100vw;
       height: 100vh;
       overflow: hidden;
     }
 
     /* 
-      Ajustes del iframe:
-      Usa valores negativos en top/left para mover la página original 
-      y ocultar los menús/barras superiores y laterales de Lovable.
+      El iframe se desplaza hacia la izquierda (-240px) 
+      y hacia arriba (-60px) para ocultar las barras.
     */
     .crop-wrapper iframe {
       position: absolute;
-      /* Ajusta este valor si deseas ocultar el menú superior (ej. -60px) */
-      top: 0px; 
-      /* Ajusta este valor si deseas ocultar la barra lateral izquierda (ej. -200px) */
-      left: 0px; 
+      top: -60px; 
+      left: -240px; 
       
-      /* Aumentamos el tamaño total para compensar los recortes */
-      width: 100%;
-      height: 100%;
+      /* Compensamos el espacio desplazado para que llene la pantalla */
+      width: calc(100vw + 240px);
+      height: calc(100vh + 60px);
       border: none;
     }
   </style>
